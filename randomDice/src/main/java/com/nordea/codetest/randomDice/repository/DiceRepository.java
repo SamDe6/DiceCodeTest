@@ -10,7 +10,7 @@ import com.nordea.codetest.randomDice.model.Dice;
 @Repository
 public interface DiceRepository extends CrudRepository<Dice, Long> {
 
-	Dice save(Dice dice);
+	<S extends Dice> S save(Dice dice);
 
 	List<Dice> findAll();
 }

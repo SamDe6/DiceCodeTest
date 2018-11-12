@@ -51,14 +51,15 @@ public class RandomDiceControllerTest {
 
 	@Test
 	public void shouldReturnCorrectCountWhenMultipleEntryInDb() {
-		// given there are multiple entries in the DB (e.g. Table contains [4,1,3,1,4,4] )
+		// given there are multiple entries in the DB (e.g. Table contains [4,1,3,1,4,4])
 		when(h2DbService.fetchData())
 				.thenReturn(List.of(new Dice(4), new Dice(1), new Dice(3), new Dice(1), new Dice(4), new Dice(4)));
 
 		// when fetchDice() method is invoked
 		Map<Integer, Long> diceCountMap = diceController.fetchDice();
 
-		// then the response count map is non empty and contains correct data (e.g output { "1": 2, "3": 1, "4": 3 })
+		// then the response count map is non empty and contains correct data
+		// (e.g. output { "1": 2, "3": 1, "4": 3 })
 		assertThat(diceCountMap.size(), equalTo(3));
 		assertThat(diceCountMap.get(1), equalTo(2L));
 		assertThat(diceCountMap.get(3), equalTo(1L));
