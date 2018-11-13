@@ -1,5 +1,5 @@
 # Dice Code Test
-Springboot REST API to fetch the count of random dice number from H2DB
+Springboot application that once per second fetches a dice number from https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new and stores the value in an H2 database table. Furthermore, there is a REST API that when called returns how many occurrences of each value have been stored in the database table e.g. if the table contains [4,1,3,1,4,4], output { "1": 2, "3": 1, "4": 3 }.
 
 ## Local URL
 http://localhost:8080/fetchDiceCount
